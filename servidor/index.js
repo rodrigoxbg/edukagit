@@ -91,7 +91,7 @@ app.use(require('./direcciones/autentificacion')); //-->oo
 //app.use('/variables',require('./direcciones/variables')); //-->oo
 // -------------------------------------------- Globales -->oo----------------------------------------
 
-
-
 app.use(express.static(path.join(__dirname,'public')));
 //
+
+// Hey aprendí a usar el commit
