@@ -1,0 +1,98 @@
+{{>estilos/tablas}}
+{{#if user.administrador}}
+
+<div class="row p-3">
+    <div class="col-sm-2">
+        <div class="card sticky-top">
+            <div class="card-header">Panel de información</div>
+            <div class="card-body"> Aquí va a ir el panel de información</div>
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <div class="card">
+            <div class="card-header">Lista de usuarios</div>
+            <div class="card-body">
+                <div class="table-responsive-sm">
+                    <table class="table table-sm table-striped tablamin">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Usuario</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Imagen</th>
+                                        <th>Pais</th>
+                                        <th>Ciudad</th>
+                                        <th>Rol</th>
+                                        <th>Nivel</th>
+                                        <th>Admin</th>
+                                        <th>Tema</th>
+                                        <th>Ip</th>
+                                        <th style="width:60px;">Usuario</th>
+                                        <th style="width:60px;">Admin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each usuarios}}
+                                        <tr>
+                                            <td>{{id}}</td>
+                                            <td>{{nombreuser}}</td>
+                                            <td>{{Nombre}}</td>
+                                            <td>{{correo}}</td>
+                                            <td>{{imagen}}</td>
+                                            <td>{{pais}}</td>
+                                            <td>{{ciudad}}</td>
+                                            <td>{{rol}}</td>
+                                            <td>{{nivel}}</td>
+                                            <td>{{administrador}}</td>
+                                            <td>{{mitheme}}</td>
+                                            <td>{{ipusuario}}</td>
+                                            <td class="eluserbtn" iduser='{{id}}'>{{usuario}}</td>
+                                            <!--<td><a href="/activaperfil={{id}}" class="btn-sm btn-primary" >Activar</a></td>-->
+                                            <td><a href="/superfil={{id}}" class="btn-sm btn-primary py-0 btn-block text-center btnlink">Perfil</a></td>
+                                        </tr>
+                                    {{else}}
+                                        <tr>
+                                            <td>-</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td>--</td>
+                                            <td><a href="#" class="btn btn-warning disabled">Activar</a></td>
+                                            <td><a href="#" class="btn btn-warning disabled">Editar</a></td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const vigila = () =>{
+        const activador = document.getElementsByClassName('eluserbtn');
+
+        for (buton of activador){
+            if(buton.innerHTML >= 1){
+                buton.innerHTML = `<i class="fa fa-check-circle-o" aria-hidden="true"></i>`;
+            }
+            else{
+                const elid = buton.getAttribute('iduser');
+                buton.innerHTML = `<a href="/activaperfil=${elid}" class="btn-sm btn-primary py-0 btn-block text-center btnlink">Activar</a>`;
+            }
+        }
+    }
+    vigila();
+
+</script>
+{{else}}
+    {{>noexiste}}
+{{/if}}

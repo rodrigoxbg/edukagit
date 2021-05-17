@@ -1,0 +1,156 @@
+{{>estilos/noticss}}
+
+{{#if smsok}}{{!-- Si existe el mensaje de exito 00002 lo que haré será graficarlo --}}
+<div id="modalok" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header py-1 fondo-ok">
+                <h5 class="modal-title"><i class="fas fa-check fa-1x text-success"></i> Acción completada</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-2 text-success text-center"><i class="fas fa-check fa-2x"></i></div>
+                    <div class="col-10 noties">{{smsok}}</div>
+                </div>
+                <hr>
+                <button class="btn btn-block btn-sm btn-primary" data-dismiss="modal">Entendido...</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+
+{{!-- El mensaje de abajo está desarrollado para cuando el usuario haya creado su nueva cuenta--}}
+{{#if smsusernewok}}
+<div id="modalnuevouser" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-check fa-1x text-success"></i> Registro Completo</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-2 text-success text-center"><i class="fas fa-child fa-3x"></i></div>
+                    <div class="col-10 noties">Hey! <strong>{{smsusernewok}}</strong> te damos la bienvenida a nuestro portal, tu usuario ha sido creado correctamente.</div>
+                </div>
+				 <br>
+                 <div class="subnoti">
+                    Por el momento las activaciones de registro se hacen desde el sistema, sin embargo ya puedes navegar con tu usuario.
+                 </div>
+                 <hr>
+                <div class="promonoti">
+                    <center><strong>Completando</strong> tu perfil estarás participando de los sorteos bimestrales</center>
+                    <div class="promogroup">
+                        <div class="promotag">
+                            <div class="promodesc"><i class="fas fa-check fa-1x text-success"></i>&nbsp;&nbsp;&nbsp; Kits gratuitos</div>
+                        </div>
+                        <div class="promotag">
+                            <div class="promodesc"><i class="fas fa-check fa-1x text-success"></i>&nbsp;&nbsp;&nbsp; 1 curso gratis</div>
+                        </div>
+                        <div class="promotag">
+                            <div class="promodesc"><i class="fas fa-check fa-1x text-success"></i>&nbsp;&nbsp;&nbsp; 13% Desc. Especializaciones</div>
+                        </div>
+                        <div class="promotag">
+                            <div class="promodesc"><i class="fas fa-check fa-1x text-success"></i>&nbsp;&nbsp;&nbsp; 20% Desc. Cursos</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="redesnoti">
+                    No te olvides de unirte a nuestra comunidad en Discord y enterate de las novedades mucho antes...
+                    <a href="https://discord.gg/pHNjmmeGcb" target="_blank" class="btn btn-warning btn-block btn-sm">Unirse a Discord &nbsp;&nbsp;&nbsp; <i class="fa fa-grav" aria-hidden="true"></i></a>
+                </div>
+                <hr>
+                <button class="btn btn-block btn-sm btn-primary" data-dismiss="modal">Entendido...</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{#if smsloginok}}
+<div id="modalsesionok" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header fondo-ok">
+                <h5 class="modal-title"><i class="fas fa-check fa-1x"></i> Sesión iniciada</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-2 text-success text-center"><i class="fas fa-check fa-1x"></i></div>
+                    <div class="col-10 noties">
+                        Las credenciales son correctas. Bienvenido <strong>{{smsloginok}}</strong>
+                    </div>
+
+                </div>
+                <hr>
+                    <div class="redesnoti">
+                            No te olvides de unirte a nuestra comunidad en Discord y enterate de las novedades mucho antes...
+                        <a href="https://discord.gg/pHNjmmeGcb" target="_blank" class="btn btn-warning btn-block btn-sm">Unirse a Discord &nbsp;&nbsp;&nbsp; <i class="fa fa-grav" aria-hidden="true"></i></a>
+                    </div>
+                <hr>
+                <button class="btn btn-block btn-primary" data-dismiss="modal">Entendido...</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/if}}
+
+
+
+{{#if smserror}}{{!-- Si existe el mensaje de error 00002 lo que haré será graficarlo --}}
+    <!--<div class="smsalertas">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{smserror}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>-->
+<div id="modalerror" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header fondo-error">
+                <h5 class="modal-title"><i class="fas fa-times-circle fa-1x text-light"></i> Ups! Algo ha salido mal</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-2 text-danger text-center"><i class="fas fa-times-circle fa-2x"></i></div>
+                    <div class="col-10 noties">{{smserror}}</div>
+                </div>
+                <hr>
+                <button class="btn btn-block btn-sm btn-danger" data-dismiss="modal">Entendido...</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{!--
+<div class="smsalertas">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Hola este es un mensaje de error, quiero ver hasta donde puede llegar con la longitud del texto y si se puede hacer un enter
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+            Launch static backdrop modal
+        </button>
+    </div>
+</div>
+--}}
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+

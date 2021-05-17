@@ -1,0 +1,43 @@
+ <style>
+        .navbar
+        {
+            background-image: linear-gradient(180deg, #eee, #fff 80px, #fff);
+            /*border-bottom:1px solid rgb(212, 212, 212);*/
+            /*background-color: {{lapagina.colorbarra}};*/
+        }
+        .navbar-brand{
+          font-size: 15pt;
+          font-weight: bold;
+        }
+</style>
+{{>estilos/adornos}}
+{{#if user}}
+  {{#unless user.usuario}}
+      <div class="opennuevo">
+          Tu usuario se encuentra en cola de activación, pero puedes navegar sin problemas por la plataforma
+      </div>
+  {{/unless}}
+{{/if}}
+<nav class="navbar navbar-expand-lg navbar-light pt-3">
+  <div class="container my-1 py-1 border-bottom">
+        <a class="navbar-brand" href="/">
+        <img src="http://localhost:4040/imgs/brarobot.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        {{lapagina.nombrepag}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" style="color:{{lapagina.thematexto}};">
+        <ul class="navbar-nav ml-auto">
+          {{#if user}}
+            {{>barranav/barrausuario}}
+          {{else}}
+            {{>barranav/barravisita}}
+          {{/if}}
+        </ul>
+    </div>
+  </div>
+</nav>
+
+{{#unless user}}
+  {{>barranav/ingresoform}}
+{{/unless}}

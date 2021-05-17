@@ -1,0 +1,109 @@
+{{>estilos/miperfil}}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-8 my-3 mx-auto">
+            <div class="row m-1">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark">
+                            <!--AQuí emiezan las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                        <input form="userform" name="Nombre" type="text" class="form-control" maxlength="24" value="{{user.Nombre}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
+                                        <input form="userform" name="Apellidos" type="text" class="form-control" maxlength="24" value="{{user.Apellidos}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                                        <input type="text" class="form-control" maxlength="118" value="{{user.correo}}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Thema</label>
+                                        <input type="text" class="form-control" maxlength="10" readonly value="{{user.mitheme}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">País</label>
+                                        <input form="userform" name="pais" type="text" class="form-control" maxlength="29" value="{{user.pais}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Ciudad</label>
+                                        <input form="userform" name="ciudad" type="text" class="form-control" maxlength="29" value="{{user.ciudad}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Rol</label>
+                                        <input type="text" class="form-control" value="{{user.rol}}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Descripción</label>
+                                        <textarea class="form-control" form="userform" name="Descripcion" id="userdesc" maxlength="100">{{user.Descripcion}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                        <div class="mb-3">
+                                        <form method="POST" action="/editamiperfil={{user.nombreuser}}" id="userform"><button class="btn btn-primary btn-block">Actualizar Perfil</button></form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <!--AQuí termina las las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 my-1 mx-auto">
+            <div class="row my-3 sticky-top">
+                <div class="card" style="width: 100%">
+                    <div class="card-body text-dark m-3 p-0">
+                        <div class="row">
+                            <div class="col">
+                                {{>miperfil/usuario}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <a href="/editaimagen={{user.nombreuser}}" class="btn btn-sm btn-info btn-block">Editar Imagen</a>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col">
+                                {{>miperfil/sobremi}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

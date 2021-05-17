@@ -1,0 +1,40 @@
+<div class="modal fade" id="loginusuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6 d-md-block d-sm-none">
+                        <center><h3>Ya te uniste al Club EdukaTech?</h3></center>
+                        Tenemos muchas sorpresas para nuestros miembros
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <center><img src="http://localhost:4040/imgs/hacker.png" width="80px" height="80" alt="Empresa"></center>
+                                <form action="/ingresar" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="nombreuser" placeholder="Usuario" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" placeholder="Contraseña" class="form-control" autocomplete="on">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-sm btn-primary btn-block p-1">
+                                            Ingresar
+                                        </button>
+                                    </div>
+                                </form>
+                                <hr/>
+                                <div style="font-size: 7pt;">La conexión es segura y está cifrada con certificados SSL válidos</div>
+                                <!--<div class="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+

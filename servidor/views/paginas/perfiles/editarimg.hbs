@@ -1,0 +1,73 @@
+{{>estilos/miperfil}}
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 my-3 mx-auto">
+                <div class="row m-1">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-dark">
+                                <!--AQuí emiezan las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                                    <div style="background: #ffffff;" id="uploadedImage" style="max-width: 400px;"></div> 
+                                    <div class="card-body">   
+                                        <input style="background: #ffffff; position:absolute; left:-10000px;top:-10000px;" type="file" name="fileUpload" id="fileUpload" /> 
+                                        <button class="btn btn-lg btn-primary btn-block" id="btnsubir" onclick="$('#fileUpload').click();">
+                                            Selecciona Archivo &nbsp;&nbsp;<i class="fa fa-upload" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                <!--AQuí termina las las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 my-1 mx-auto">
+                <div class="row my-3 sticky-top">
+                    <div class="card" style="width: 100%">
+                        <div class="card-body text-dark m-3 p-0">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card mb-2 border-transparent">
+                                        <div class="row p-0">
+                                            <div class="col-md-3 my-auto">
+                                            <img class="fotoperfil" src="/usuarios/{{user.nombreuser}}/{{user.imagen}}" id="imagenperf">
+                                            </div>
+                                            <div class="col-md-9">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-dark">{{user.nombreuser}}</h5>
+                                                <p class="card-text text-dark descperfil">{{user.Descripcion}}</p>
+                                                <!--<p class="card-text"><small class="text-muted">Rol : {{user.rol}}</small></p>-->
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <a class="btn btn-success btn-block btn-sm disabled" id="cropButton" onclick="cropImage();">Guardar Imagen</a>
+                                    <a href="/perfil/{{user.nombreuser}}" hidden id="btncancela" class="btn btn-sm btn-danger btn-block">Cancelar</a>
+                                    <a href="#" class="btn btn-sm btn-info btn-block disabled">Editar Imagen</a>
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col">
+                                    {{>miperfil/sobremi}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+
+<!--/form-->
+<script src="../js/editorimg.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css" />

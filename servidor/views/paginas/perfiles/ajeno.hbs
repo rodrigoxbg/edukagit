@@ -1,0 +1,154 @@
+<style>
+    .tablaperfil{
+        font-size: 10pt;
+    }
+    .tablaperfil td:nth-child(1){
+        /*background-color: cornflowerblue;*/
+        font-weight: bolder;
+    }
+</style>
+<div class="row p-3">
+    <div class="col-sm-5 mx-auto">
+        <div class="card h-100">
+            <div class="card-header">Sobre Mi</div>
+            <div class="card-body">
+                        <table class="tablaperfil">
+                            <tr>
+                                <td rowspan="8"><img src="usuarios/{{perfil.nombreuser}}/{{perfil.imagen}}" width="150px" height="150px"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td><i class="fa fa-user-o" aria-hidden="true"></i> nombreuser</td>
+                                <td>: {{perfil.nombreuser}}</td>
+                            </tr>
+                            <tr>
+
+                                <td><i class="fa fa-address-card-o" aria-hidden="true"></i> Nombre</td>
+                                <td>: {{perfil.Nombre}}</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-address-card-o" aria-hidden="true"></i> Apellidos</td>
+                                <td>: {{perfil.Apellidos}}</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-envelope-o" aria-hidden="true"></i> Correo</td>
+                                <td>: {{perfil.correo}}</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-map-marker" aria-hidden="true"></i> Pais</td>
+                                <td>: {{perfil.pais}}</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-map-o" aria-hidden="true"></i> Ciudad</td>
+                                <td>: {{perfil.ciudad}}</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-laptop" aria-hidden="true"></i> IP</td>
+                                <td>: {{perfil.ipusuario}}</td>
+                            </tr>
+                        </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 mx-auto">
+        <div class="card h-100">
+            <div class="card-header">Descripción</div>
+            <div class="card-body">
+                {{perfil.Descripcion}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 mx-auto">
+        <div class="card h-100">
+            <div class="card-header">Herramientas</div>
+            <div class="card-body">
+                <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#editaajenousuario">Editar Perfil</button>
+                <button class="btn btn-block btn-dark">Sancionar Perfil</button>
+                <button class="btn btn-block btn-outline-danger" data-toggle="modal" data-target="#eliminausuario">Eliminar Perfil</button>
+                <br>
+                <a href="/sudousuarios" class="btn btn-sm btn-secondary btn-block">Volver a Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Desde aquí van las ventanas Modales para las ddisintas cosas--}}
+
+<!-- Para eliminar a un usuario ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+<div class="modal fade" id="eliminausuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Estás seguro que deseas eliminar a este usuario? Esta acción es Irreversible.
+        <div class="my-3">
+            <form id="deluserform" action="/sudoeliminauser" method="POST">
+                <input type="hidden" value="{{perfil.id}}" name="idusuario">
+                <input type="text" placeholder="Codigo Sudo" class="form-control" name="codigosudo">
+            </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button form="deluserform" class="btn btn-warning">Si estoy seguro.</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Para editar a un usuario ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+<div class="modal fade" id="editaajenousuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Panel de Edición</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edtuserform" action="/sudoeditajeno={{perfil.id}}" method="POST">
+            <div class="mb-3">
+                <label>Nombre de usuario: </label>
+                <input type="text" class="form-control" value="{{perfil.nombreuser}}" readonly>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-6">
+                        <label>Nombre: </label>
+                        <input type="text" class="form-control" name="Nombre" value="{{perfil.Nombre}}">
+                </div>
+                <div class="col-sm-6">
+                        <label>Apellidos: </label>
+                        <input type="text" class="form-control" name="Apellidos" value="{{perfil.Apellidos}}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Correo: </label>
+                <input type="text" class="form-control" name="correo" value="{{perfil.correo}}">
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-6">
+                        <label>Pais: </label>
+                        <input type="text" class="form-control" name="pais" value="{{perfil.pais}}">
+                </div>
+                <div class="col-sm-6">
+                        <label>Ciudad: </label>
+                        <input type="text" class="form-control" name="ciudad" value="{{perfil.ciudad}}">
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button form="edtuserform" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

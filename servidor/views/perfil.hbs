@@ -1,0 +1,66 @@
+{{>estilos/miperfil}}
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <center><h4>Bienvenido a mi perfil... !</h4></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 my-3 mx-auto">
+            <div class="row m-1">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark">
+                            <!--AQuí emiezan las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                            <h4>Mis logros</h4>
+
+                            <i class="fa fa-bank" aria-hidden="true"></i>&nbsp;&nbsp;Certificados obtenidos
+                            <hr>
+                            -> Aún no tienes certificados<br>
+                            <br>
+
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;&nbsp;Cursos Inscritos
+                            <hr>
+                            -> Aún no llevaste ningún curso<br>
+                            <br>
+
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;&nbsp;Tutoriales Seguidos
+                            <hr>
+                            -> Aún no seguiste ningún tutorial <br>
+                            <!--AQuí termina las las cartas ::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 my-1 mx-auto">
+            <div class="row my-3">
+                <div class="card" style="width: 100%">
+                    <div class="card-body text-dark m-3 p-0">
+                        <div class="row">
+                            <div class="col">
+                                {{>miperfil/usuario}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {{>miperfil/sobremi}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <a href="/editamiperfil={{user.nombreuser}}" class="btn btn-outline-dark btn-sm btn-block">Editar mi perfil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

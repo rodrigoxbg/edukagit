@@ -1,0 +1,194 @@
+<div class="container p-1 my-4">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<div class="card text-center">
+					<div class="card-header text-dark">
+						<h5>Crea tu cuenta y empieza a aprender</h5>
+					</div>
+					<div class="card-body">
+						<form id="registrador" action="/registro" method="POST">
+							<input type="hidden" id="visitaip" name="ipusuario" class="form-control">
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-address-card-o" aria-hidden="true" style="font-size: 0.8em; margin-right:5px;"></i></span>
+									</div>
+									<input type="text" name="Nombre" id="nombb" placeholder="Primer Nombre" class="form-control" autofocus required>
+									<div class="valid-feedback">
+										OK Luce bien!
+									</div>
+									<div id="validationServer05Feedback" class="invalid-feedback">
+										Ingresa solo tu Primer Nombre
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-user" aria-hidden="true" style="font-size: 0.8em; margin-right:5px;"></i></span>
+									</div>
+									<input type="text" name="nombreuser" id="namename" placeholder="nombreusuario" class="form-control">
+									<div class="valid-feedback">
+										Nombre usuario disponible!
+									</div>
+									<div id="validationServer05Feedback" class="invalid-feedback">
+										Prueba con otro nombre de usuario.
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-lock" aria-hidden="true" style="font-size: 0.8em; margin-right:5px;"></i></span>
+									</div>
+									<input type="password" name="password" id="passtext" placeholder="Contraseña" class="form-control">
+									<div class="valid-feedback">
+										Ok luce bien!
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa fa-at" aria-hidden="true" style="font-size: 0.8em; margin-right:5px;"></i></span>
+									</div>
+									<input type="text" name="correo" placeholder="tucorreo@correo.com" id="correoe" class="form-control">
+									<div class="valid-feedback">
+										Ok luce bien!
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								{{!-- <input id="registrarse-btn" class="btn btn-success btn-block p-1" type="submit" value="Registrarse"> --}}
+								<button class="btn btn-success btn-block p-2" id="btnregistro">
+									Registrarse
+								</button>
+							</div>
+							<div class="form-group">
+								<h6 style="font-family: Arial, Helvetica, sans-serif; font-size:8pt; color:rgb(68, 67, 67);">Al Pulsar en el botón "Registrarse" se entiende que usted ya ha leido nuestros <a href="#">Términos y Condiciones</a> sobre el serivicio y
+								la privacidad de tus datos.</h6>
+							</div>
+							<input type="hidden" id="T0keu" name="T0keu">
+						</form>
+					</div>
+				</div>
+				<hr />
+			</div>
+		</div>
+		<div class="row py-2">
+			<div class="col-md-6 mx-auto">
+				<div class="card">
+					<div class="card-header">
+						<h5>Esto es opcional</h5>
+						Nos brindas algunos datos extra?
+					</div>
+					<div class="card-body">
+						Como te enteraste de nosotros?
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+								<input type="checkbox" aria-label="Checkbox for following text input">
+								</div>
+							</div>
+							<input type="text" class="form-control" value="Por publicidad en FB; Twitter, etc..." readonly>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+								<input type="checkbox" aria-label="Checkbox for following text input">
+								</div>
+							</div>
+							<input type="text" class="form-control" value="Por recomendación de un amigo" readonly>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+								<input type="checkbox" aria-label="Checkbox for following text input">
+								</div>
+							</div>
+							<input type="text" class="form-control" value="Por participar en un seminario" readonly>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+								<input type="checkbox" aria-label="Checkbox for following text input">
+								</div>
+							</div>
+							<input type="text" maxlength="100" class="form-control" placeholder="Otro: ¿Nos ayudas a saber cómo?">
+						</div>
+						Este dato se carga automáticamente con el registro de un nuevo usuario
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+{{!-- Desde aquí la librerías --}}
+{{!--<script src="https://www.google.com/recaptcha/api.js?render=6LdfMc0ZAAAAAFgD-E6rqXniFJct1X9Y4qmvUQ_-"></script>--}}
+<!--<script src="../js/moment.js"></script>-->
+<script type="text/javascript">
+
+const iniciopos = async () =>{
+	document.getElementById('correoe').onkeyup = correo;
+	document.getElementById('passtext').onkeyup = passtxt;
+	document.getElementById('nombb').onkeyup = nombretxt;
+	document.getElementById('namename').onblur = compruebadatos;
+}
+
+const compruebadatos = async () =>{
+	const datonombre = document.getElementById('namename').value;
+	num_caracteres = datonombre.length;
+	if (num_caracteres >=5 && num_caracteres <=15 && (datonombre.split(" ").length) <=1){
+		const inform = {datonombre}
+		const options = {
+			method : 'POST',
+			headers :{'Content-Type': 'application/json'},
+			body: JSON.stringify(inform)
+		};
+		const mensaje = await fetch('/pruebauser',options); // Esperamos a que haga fetch
+		const respuesta = await mensaje.json(); // Aquí está la respuesta desde el servidor
+		const datonusuario = document.getElementById('namename');
+
+		if (respuesta.status == 'Correcto'){datonusuario.className = 'form-control is-valid'; 
+		document.getElementById('btnregistro').disabled = false;
+		}
+		else{datonusuario.className = 'form-control is-invalid';
+		document.getElementById('btnregistro').disabled = true;
+		}
+		}
+	else{
+		const datonusuario = document.getElementById('namename');
+		datonusuario.className = 'form-control is-invalid';
+		document.getElementById('btnregistro').disabled = true
+	}
+}
+
+const correo = async () =>{
+	let elcorreo = document.getElementById('correoe')
+	if (elcorreo.value.split('@').length >=2){
+		if (elcorreo.value.split('@')[1].split('.').length>=2){elcorreo.className = 'form-control is-valid';}
+		else{elcorreo.className = 'form-control is-invalid';}}
+	else{elcorreo.className = 'form-control is-invalid';}
+	}
+const passtxt = async () =>{
+	let elpass = document.getElementById('passtext')
+	if (elpass.value.length >=7){elpass.className = 'form-control is-valid';}
+	else{elpass.className = 'form-control is-invalid';}
+}
+const nombretxt = async () =>{
+	let elnomb = document.getElementById('nombb')
+	if (elnomb.value.length >=3 && elnomb.value.split(' ').length<=1){elnomb.className = 'form-control is-valid';}
+	else{elnomb.className = 'form-control is-invalid';}
+}
+
+function getIP(json) {
+	document.getElementById('visitaip').value = json.ip;
+  }
+  
+
+iniciopos();
+</script>
+
+
+
+
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>

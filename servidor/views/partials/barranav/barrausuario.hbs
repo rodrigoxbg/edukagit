@@ -1,0 +1,41 @@
+{{>barranav/menu}}
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp; Mis Cursos</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="misprocesos">
+            <a class="dropdown-item itemmood" href="#">
+              Aún no estás matriculado</br>
+              Buscar cursos
+            </a> 
+          </div>    
+</li>
+
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong><i class="fa fa-grav" aria-hidden="true"></i> &nbsp;Sudo</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="misprocesos">
+              <a class="dropdown-item itemmood" href="/sudocursos" id="itemcursos"><i class="fa fa-graduation-cap" aria-hidden="true"></i> &nbsp;Cursos</a>
+              <a class="dropdown-item itemmood" href="/sudousuarios" id="itemusuarios"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;Usuarios</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item itemmood disabled" href="/sudoadmin" id="itempanel"><i class="fa fa-grav" aria-hidden="true"></i> &nbsp;Panel</a>
+          </div>    
+</li>
+{{#if user.administrador}}
+{{/if}}
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{user.Nombre}}
+      <img class="fotoperfilbarra" src="/usuarios/{{user.nombreuser}}/{{user.imagen}}"/>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item itemmood" href="/perfil/{{user.nombreuser}}">Mi Perfil</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item itemmood disabled" href="/mitema">Tema</a>
+      <a class="dropdown-item itemmood" href="/soporte">Soporte</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item itemmood" href="/cerrarsesion">Cerrar Sesión</a>
+    </div>
+</li>
